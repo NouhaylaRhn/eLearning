@@ -1,4 +1,4 @@
-package eLearning.dao;
+package eLearning.dao.Entity;
 
 
 import javax.persistence.Column;

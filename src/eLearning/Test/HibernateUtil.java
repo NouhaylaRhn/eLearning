@@ -1,4 +1,4 @@
-package eLearning;
+package eLearning.Test;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -15,7 +15,7 @@ public class HibernateUtil {
 		
 		try {
 			Configuration configuration= new Configuration();
-			configuration.configure("hibernate.cfg.xml");
+			configuration.configure("config/hibernate.cfg.xml");
 			//serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServieRegistry();
 
 			serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();

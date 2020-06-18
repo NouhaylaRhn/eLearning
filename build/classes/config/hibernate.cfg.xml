@@ -24,8 +24,10 @@
 		<!-- Set the current session context -->
 		<property name="current_session_context_class">thread</property>
 		
-		 <mapping class="eLearning.dao.Cours"/>  
-		
+		<mapping class="eLearning.dao.Cours"/>  
+		<mapping class="eLearning.dao.Classe"/>  
+		<mapping class="eLearning.dao.Enseignant"/>  
+		<mapping class="eLearning.dao.Etudiant"/>  
 		
 		
 		
