@@ -32,6 +32,33 @@ public class HibernateUtil {
 		
 	}
 	
+	public static SessionFactory getSessionFactory() {
+		return sessionFactory;
+		
+		
+	}
+	
+	public static Session openSession() {
+		return sessionFactory.openSession();
+		
+	}
+	
+	public static Session getCurrentSession() {
+		return sessionFactory.getCurrentSession();
+		
+	}
+	
+	public static void close() {
+		if (sessionFactory!=null) {
+			sessionFactory.close();
+			
+			
+		}
+		sessionFactory=null;
+		
+	}
+	
+	
 	
 
 }
