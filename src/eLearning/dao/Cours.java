@@ -22,6 +22,13 @@ public class Cours implements Serializable {
 	
 	@Column(name="nom_cours")
 	private String nom_cours ;
+	
+	@Column(name="catégorie")
+	private String catégorie;
+	
+	@Column(name="Contenu")
+	private String contenu;
+	
 
 	public int getId() {
 		return id;
@@ -37,6 +44,26 @@ public class Cours implements Serializable {
 
 	public void setNom_cours(String nom_cours) {
 		this.nom_cours = nom_cours;
+	}
+	
+	
+	
+	
+
+	public String getCatégorie() {
+		return catégorie;
+	}
+
+	public void setCatégorie(String catégorie) {
+		this.catégorie = catégorie;
+	}
+
+	public String getContenu() {
+		return contenu;
+	}
+
+	public void setContenu(String contenu) {
+		this.contenu = contenu;
 	}
 
 	public Cours(String nom_cours) {

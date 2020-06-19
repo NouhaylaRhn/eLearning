@@ -12,18 +12,39 @@
 
 <h:body>
 <h:form>
-		<h:messages styleClass="error" >
-		  Titre du cours  <h:inputText  value="#{ coursBean.nomcours}" label="Titre du projet" required="true" 
-		    				 />
-		    				
-		    				
-		  
+<h:messages styleClass="error" >
+<table>
+<tr>
+<td> <h:outputLabel value="Titre du cours" for="nomcours">    </h:outputLabel> </td>
+
+<td> <h:inputText  value="#{CoursBean1.nomcours}"  id="nomcours" required="true"  requiredMessage="Vous devez indiquer un titre"/> </td>
+</tr>
 
 
 
-<br/> <br/>
-		    <!--   <h:commandButton value="Submit" actionListener="#{ CoursBean.saveCours}"  /> -->
-		    <h:commandButton value="Submit" action="myresponse"  />
+<tr>
+<td> <h:outputLabel value="Contenu du cours" for="contenu">    </h:outputLabel> </td>
+
+<td> <h:inputTextarea rows="20"  cols="70" value="#{CoursBean1.contenu}" id="contenu" required="true" requiredMessage="Vous devez remplir le contenu" /></td>
+
+</tr>
+
+
+
+<tr>
+<td>  <h:outputLabel value="Catégorie du cours" for="catégorie">    </h:outputLabel> </td>
+
+<td>  <h:selectOneMenu value ="#{CoursBean1.catégorie}" id="catégorie" required="true" requiredMessage="Vous devez Choisir la catégorie de votre cours"> 
+		  <f:selectItem itemValue="" itemLabel=""></f:selectItem>
+		  <f:selectItems value="#{CoursBean1.catégories}" ></f:selectItems>
+		  </h:selectOneMenu>  </td>
+
+</tr>
+</table>
+		
+	
+		     <h:commandButton value="Ajouter" actionListener="#{CoursBean1.addCours}"  /> 
+		    <!--  <h:commandButton value="Submit" action="myresponse"  /> -->
 		    </h:messages>
 		</h:form>
 

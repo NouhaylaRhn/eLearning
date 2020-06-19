@@ -1,21 +1,68 @@
 package eLearning.presentation;
 
 
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.event.ActionEvent;
+
+import eLearning.dao.Cours;
+import eLearning.services.CoursService;
+import eLearning.services.CoursServiceImpl;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.*;
 
-@ManagedBean
+@ManagedBean(name="CoursBean1")
 @RequestScoped
 public class CoursBean {
 	
+	private CoursService service = new CoursServiceImpl();
+	
+	
 	private String nomcours;
-	
-	
-	public void initBean() {
-		
+	private String contenu;
+	private String catégorie;
+	private List<String> catégories;
+	public List<String> getCatégories() {
+		return catégories;
 	}
+
+
+	
+	public CoursBean() {
+        catégories = new ArrayList<String>();
+		
+		catégories.add("Informatique");
+		catégories.add("Médecine");
+		catégories.add("Littérature"); 
+	}
+
+
+
+
+	public void setCatégories(List<String> catégories) {
+		this.catégories = catégories;
+	}
+	
+	public String getCatégorie() {
+		return catégorie;
+	}
+
+	public void setCatégorie(String catégorie) {
+		this.catégorie = catégorie;
+	}
+
+	public String getContenu() {
+		return contenu;
+	}
+
+	public void setContenu(String contenu) {
+		this.contenu = contenu;
+	}
+
+	
 
 	public String getNomcours() {
 		return nomcours;
@@ -25,6 +72,22 @@ public class CoursBean {
 		this.nomcours = nomcours;
 	}
 	
+	
+	
+	
+	public void addCours(ActionEvent e) {
+		System.out.println(nomcours);
+		System.out.println(contenu);
+		System.out.println(catégorie);
+		
+		Cours c = new Cours();
+		c.setNom_cours(nomcours);
+		c.setContenu(contenu);
+		c.setCatégorie(catégorie);
+		service.add(c);
+
+		
+	}
 	
 	
 	
