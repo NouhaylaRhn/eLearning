@@ -12,6 +12,45 @@
 
 <h:body>
 <h:form>
+
+
+<h3>  La liste des cours </h3>
+
+<h:dataTable value="#{CoursBean1.listcours}" var="o">
+
+<h:column>
+
+<h:outputText    value="#{o.id}"></h:outputText>
+
+
+</h:column>
+
+
+
+<h:column>
+<h:outputText    value="#{o.nom_cours}"></h:outputText>
+</h:column>
+
+
+
+<h:column>
+<h:outputText    value="#{o.contenu}"></h:outputText>
+</h:column>
+
+
+
+<h:column>
+<h:outputText    value="#{o.catégorie}"></h:outputText>
+</h:column>
+
+
+
+
+</h:dataTable>
+
+
+
+
 <h:messages styleClass="error" >
 <h:outputText value="#{CoursBean1.succés}"></h:outputText>
 <table>

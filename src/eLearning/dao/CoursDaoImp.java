@@ -41,6 +41,7 @@ public class CoursDaoImp implements CoursDAO {
 
 	@Override
 	public List<Cours> findAll() {
+		session.beginTransaction();
 		return session.createQuery("select o from Cours o ").list();
 	}
 

@@ -5,7 +5,10 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.event.ActionEvent;
 
+import eLearning.dao.Classe;
 import eLearning.dao.Cours;
+import eLearning.services.ClasseService;
+import eLearning.services.ClasseServiceImpl;
 import eLearning.services.CoursService;
 import eLearning.services.CoursServiceImpl;
 
@@ -18,7 +21,9 @@ import javax.annotation.*;
 @RequestScoped
 public class CoursBean {
 	
-	private CoursService service = new CoursServiceImpl();
+	private CoursService coursservice = new CoursServiceImpl();
+	private ClasseService classeservice = new ClasseServiceImpl();
+
 	
 	
 	private String nomcours;
@@ -30,22 +35,32 @@ public class CoursBean {
 		return catégories;
 		
 	}
-
+	
+	private List<Cours> listcours;
 
 	
 	@PostConstruct
 	public void initBean() {
+        catégories = new ArrayList<String>();
+
+		List<Classe> listclasse = classeservice.findAll();	
+		for(Classe o : listclasse) {
+			catégories.add(o.getNom_classe());
+		}
+		
+		listcours = coursservice.findAll();
+		
 		
 	}
 	
 	
 	
 	public CoursBean() {
-        catégories = new ArrayList<String>();
+        /*catégories = new ArrayList<String>();
 		
 		catégories.add("Informatique");
 		catégories.add("Médecine");
-		catégories.add("Littérature"); 
+		catégories.add("Littérature"); */
 	}
 
 
@@ -96,6 +111,18 @@ public class CoursBean {
 
 
 
+	public List<Cours> getListcours() {
+		return listcours;
+	}
+
+
+
+	public void setListcours(List<Cours> listcours) {
+		this.listcours = listcours;
+	}
+
+
+
 	public void addCours(ActionEvent e) {
 		
 		succés="";
@@ -107,7 +134,7 @@ public class CoursBean {
 		c.setNom_cours(nomcours);
 		c.setContenu(contenu);
 		c.setCatégorie(catégorie);
-		service.add(c);
+		coursservice.add(c);
 		
 		nomcours="";
 		contenu="";

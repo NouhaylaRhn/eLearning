@@ -36,6 +36,8 @@ public class ClasseDaoImp implements ClasseDAO {
 	}
 	@Override
 	public List<Classe> findAll() {
+		session.beginTransaction();
+
 		return session.createQuery("select o from Classe o ").list();
 
 	}
