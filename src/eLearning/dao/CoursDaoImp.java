@@ -39,6 +39,7 @@ public class CoursDaoImp implements CoursDAO {
 		return cc;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Cours> findAll() {
 		session.beginTransaction();
