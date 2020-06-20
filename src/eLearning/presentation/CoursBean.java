@@ -24,12 +24,21 @@ public class CoursBean {
 	private String nomcours;
 	private String contenu;
 	private String catégorie;
+	private String succés;
 	private List<String> catégories;
 	public List<String> getCatégories() {
 		return catégories;
+		
 	}
 
 
+	
+	@PostConstruct
+	public void initBean() {
+		
+	}
+	
+	
 	
 	public CoursBean() {
         catégories = new ArrayList<String>();
@@ -75,7 +84,21 @@ public class CoursBean {
 	
 	
 	
+	public String getSuccés() {
+		return succés;
+	}
+
+
+
+	public void setSuccés(String succés) {
+		this.succés = succés;
+	}
+
+
+
 	public void addCours(ActionEvent e) {
+		
+		succés="";
 		System.out.println(nomcours);
 		System.out.println(contenu);
 		System.out.println(catégorie);
@@ -85,6 +108,13 @@ public class CoursBean {
 		c.setContenu(contenu);
 		c.setCatégorie(catégorie);
 		service.add(c);
+		
+		nomcours="";
+		contenu="";
+		catégorie="";
+		
+		succés = "le cours est bien ajouté";
+		
 
 		
 	}
