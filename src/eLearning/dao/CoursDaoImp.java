@@ -33,6 +33,7 @@ public class CoursDaoImp implements CoursDAO {
 		Cours cc = findById(id);
 		session.delete(cc);
 		session.getTransaction().commit();
+		
 	}
 
 	@Override

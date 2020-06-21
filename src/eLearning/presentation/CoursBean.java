@@ -32,7 +32,7 @@ public class CoursBean {
 	private String contenu;
 	private String catégorie;
 	private String succés;
-	private Cours leCours;
+	private static Cours leCours;
 	public Cours getLeCours() {
 		return leCours;
 	}
@@ -165,7 +165,7 @@ public class CoursBean {
 		
 	}
 	
-	public Cours fonction(ActionEvent e) {
+	public String fonction() {
 		
 		System.out.println("here");
 		int id;		
@@ -173,7 +173,7 @@ public class CoursBean {
 						.getExternalContext().getRequestParameterMap()
 						.get("id_cours"));
 		leCours = coursservice.findById((long) id);
-		return (leCours);
+		return ("ContenuCours.xhtml");
 		
 	}
 	
