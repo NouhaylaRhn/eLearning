@@ -1,8 +1,10 @@
 package eLearning.presentation;
 
 
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import eLearning.dao.Classe;
@@ -18,7 +20,7 @@ import java.util.List;
 import javax.annotation.*;
 
 @ManagedBean(name="CoursBean1")
-@RequestScoped
+@ApplicationScoped
 public class CoursBean {
 	
 	private CoursService coursservice = new CoursServiceImpl();
@@ -30,6 +32,19 @@ public class CoursBean {
 	private String contenu;
 	private String catégorie;
 	private String succés;
+	private Cours leCours;
+	public Cours getLeCours() {
+		return leCours;
+	}
+
+
+
+
+
+	public void setLeCours(Cours leCours) {
+		this.leCours = leCours;
+	}
+
 	private List<String> catégories;
 	public List<String> getCatégories() {
 		return catégories;
@@ -37,7 +52,7 @@ public class CoursBean {
 	}
 	
 	private List<Cours> listcours;
-
+	
 	
 	@PostConstruct
 	public void initBean() {
@@ -51,7 +66,11 @@ public class CoursBean {
 		listcours = coursservice.findAll();
 		
 		
+		
+		
 	}
+	
+	
 	
 	
 	
@@ -145,6 +164,19 @@ public class CoursBean {
 
 		
 	}
+	
+	public Cours fonction(ActionEvent e) {
+		
+		System.out.println("here");
+		int id;		
+		id = Integer.parseInt(FacesContext.getCurrentInstance()
+						.getExternalContext().getRequestParameterMap()
+						.get("id_cours"));
+		leCours = coursservice.findById((long) id);
+		return (leCours);
+		
+	}
+	
 	
 	
 	

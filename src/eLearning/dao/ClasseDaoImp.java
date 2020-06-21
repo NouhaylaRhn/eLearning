@@ -2,6 +2,8 @@ package eLearning.dao;
 
 import java.util.List;
 
+import javax.faces.context.FacesContext;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -45,4 +47,7 @@ public class ClasseDaoImp implements ClasseDAO {
 	public Classe findById(Long id) {
 		return (Classe) session.get(Classe.class , id);
 	}
+	
+	
+	
 }

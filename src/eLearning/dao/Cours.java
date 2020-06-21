@@ -18,7 +18,7 @@ public class Cours implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_cours")
-	private int id;
+	private Long id;
 	
 	@Column(name="nom_cours")
 	private String nom_cours ;
@@ -30,11 +30,11 @@ public class Cours implements Serializable {
 	private String contenu;
 	
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

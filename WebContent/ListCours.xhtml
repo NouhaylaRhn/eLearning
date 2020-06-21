@@ -25,9 +25,28 @@
 		<h:column>
 			<h:outputText value ="#{o.catégorie}"></h:outputText>
 		</h:column>
+		
+		
+		
+
+		<h:column>
+			<h:button value="Commencer" outcome="ContenuCours" actionListener="#{CoursBean1.fonction}"  >
+				<f:param name="id_cours" value="#{o.id}" />
+			</h:button>	
+		</h:column>
+		
+		
+		
+		
 	
 	
 	</h:dataTable>
+	
+	
+
+	
+	
+	
 	
 	
 	

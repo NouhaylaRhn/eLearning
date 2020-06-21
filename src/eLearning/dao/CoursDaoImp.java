@@ -1,7 +1,11 @@
 package eLearning.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.context.FacesContext;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -48,9 +52,16 @@ public class CoursDaoImp implements CoursDAO {
 
 	@Override
 	public Cours findById(Long id) {
-		return (Cours) session.get(Cours.class , id);
+		Cours cours = (Cours) session.get(Cours.class , id);
+		
+		String contenu = cours.getContenu();
+		
+		System.out.println("cours:"+ contenu);
+		return cours;
 	}
 	
+	
+
 	
 
 }
