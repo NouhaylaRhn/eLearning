@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15927100266420" configfile="/eLearning/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="ListCours.xhtml" id="pf159271084357613" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf159271084357614" path="/ListCours.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ListCours.xhtml" id="pf159271084357613" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" outlinks="pf159271084357614" inlinks="pf15927743743760" path="/ListCours.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="ContenuCours.xhtml" id="pf159271084357615" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf159271084357614" path="ContenuCours.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" id="pf15927743743771" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf15927743743772 pf15927743743760 pf15927743743773" inlinks="pf15927743743772" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="AddCours.xhtml" id="pf15927743743774" referenceLink="//@navigationRule.1/@navigationCase.1/@toViewId|" inlinks="pf15927743743773" path="/AddCours.xhtml"/>
   <links id="pf159271084357614" target="pf159271084357615" source="pf159271084357613" outcome="ContenuCours" fromaction="#{CoursBean1.fonction}"/>
+  <links id="pf15927743743772" target="pf15927743743771" source="pf15927743743771" outcome="No" redirect="true" fromaction="#{loginBean.checkuser()}"/>
+  <links id="pf15927743743760" target="pf159271084357613" source="pf15927743743771" outcome="Etudiant" redirect="true" fromaction="#{loginBean.checkuser()}"/>
+  <links id="pf15927743743773" target="pf15927743743774" source="pf15927743743771" outcome="Enseignant" redirect="true" fromaction="#{loginBean.checkuser()}"/>
 </pageflow:Pageflow>

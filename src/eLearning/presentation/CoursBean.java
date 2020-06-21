@@ -54,21 +54,7 @@ public class CoursBean {
 	private List<Cours> listcours;
 	
 	
-	@PostConstruct
-	public void initBean() {
-        catégories = new ArrayList<String>();
-
-		List<Classe> listclasse = classeservice.findAll();	
-		for(Classe o : listclasse) {
-			catégories.add(o.getNom_classe());
-		}
-		
-		listcours = coursservice.findAll();
-		
-		
-		
-		
-	}
+	
 	
 	
 	
@@ -81,7 +67,22 @@ public class CoursBean {
 		catégories.add("Médecine");
 		catégories.add("Littérature"); */
 	}
+	
+	@PostConstruct
+	public void initBean() {
+        catégories = new ArrayList<String>();
 
+		/*List<Classe> listclasse = classeservice.findAll();	
+		for(Classe o : listclasse) {
+			catégories.add(o.getNom_classe());
+		}
+		*/
+		listcours = coursservice.findAll();
+		
+		
+		
+		
+	}
 
 
 

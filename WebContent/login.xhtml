@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	  xmlns:c="http://java.sun.com/jsp/jstl/core"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <f:view>
+        <head>
+            <title>Login page</title>
+            <meta charset="UTF-8"></meta>
+            <!-- Compiled and minified CSS -->
+		    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		    <!-- Compiled and minified JavaScript -->
+		    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    		
+        </head>
+        
+     	<h:body styleClass="cyan lighten-5">
+     		  <style>
+                body{background: #eee url(http://subtlepatterns.com/patterns/stardust.png);}
+                html,body{
+                    position: relative;
+                    height: 100%;
+                }
+				.container{
+				margin-top:8%;
+				}
+				.btn{
+                 margin-left:37%;
+                 padding-left:10%;
+                 padding-RIGHT:10%;
+                 margin-bottom:-5%;
+				}
+				.row{
+				padding-left:10%;
+				 padding-RIGHT:10%;
+				}
+				.card{
+				margin-left:-50%;
+				margin-right:-50%;
+				}
+               
+            </style>
+     		<div class="valign-wrapper" id="login-page">
+     			<div class="container">
+     				<div class="center-align">
+     					<div class="row">
+	     					<div class="col s6 offset-s3">
+	     						<div class="card">
+	     							<div class="card-content">
+	     								<img class="responsive-img" style="max-width: 64px;margin-top:-1%" src="https://www.vippng.com/png/detail/5-59916_book-icon-png-book-symbol-transparent-background.png" />
+	     								<div class="left-align">
+	     									<h:form id="login-form">
+	     										<p:growl autoUpdate="true" />
+	     										<div class="row">
+	     											<div class="col s12 input-field">
+	     												<h:inputText id = "email" requeired="true" requieredMessage="Email is requiered" value = "#{loginBean.email}"></h:inputText> <br></br>
+									  					<h:outputLabel for="email" value = "Adresse Email" />
+	     											</div>
+	     											<div class="col s12 input-field">
+	     												<h:inputSecret id = "password" requeired="true" requieredMessage="Password is requiered" value = "#{loginBean.password}"></h:inputSecret> <br></br>
+									  					<h:outputLabel for="password" value = "Mot de passe" />
+	     											</div>
+	     											<div class="col s12 input-field">
+	     												<h:commandButton action="#{loginBean.checkuser()}" value="Login" class = "btn black btn-large"></h:commandButton>
+	     											</div>
+	     										</div>
+									        	
+	                
+	          								 </h:form>
+	     								</div>
+	     							</div>
+	     						</div>
+	     					</div>
+	     				</div>
+     				</div>
+       			</div>
+     		</div>
+     		<script>
+     			$(document).on("ready",function(){
+     				$('#login-page').css({'height': window.innerHeight + 'px'});
+     			});
+     		
+     		</script>
+     		
+        </h:body>
+    </f:view>
+</html>

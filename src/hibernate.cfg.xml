@@ -9,8 +9,8 @@
         <!-- JDBC Database connection settings -->
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="connection.url">jdbc:mysql://localhost:3306/elearning?useSSL=false&amp;serverTimezone=UTC</property>
-        <property name="connection.username">projet</property>
-        <property name="connection.password">projet</property>
+        <property name="connection.username">bacha</property>
+        <property name="connection.password">bacha</property>
 
         <!-- JDBC connection pool settings ... using built-in test pool -->
         <property name="connection.pool_size">1</property>
@@ -25,6 +25,10 @@
 		<property name="current_session_context_class">thread</property>
 		
 		 <mapping class="eLearning.dao.Cours"/>  
+				 
+		 <mapping class="eLearning.dao.Entity.Etudiant"/>  
+		 
+		 <mapping class="eLearning.dao.Entity.Enseignant"/>  
 		
 		
 		
