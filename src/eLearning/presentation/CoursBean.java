@@ -3,30 +3,34 @@ package eLearning.presentation;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
-import eLearning.dao.Classe;
+import eLearning.dao.ClasseDAO;
+import eLearning.dao.ClasseDaoImp;
 import eLearning.dao.Cours;
+import eLearning.dao.CoursDAO;
+import eLearning.dao.CoursDaoImp;
+import eLearning.dao.EtudiantDAO;
+import eLearning.dao.EtudiantDaoImp;
 import eLearning.services.ClasseService;
 import eLearning.services.ClasseServiceImpl;
 import eLearning.services.CoursService;
 import eLearning.services.CoursServiceImpl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.*;
 
+@SuppressWarnings("deprecation")
 @ManagedBean(name="CoursBean1")
 @ApplicationScoped
 public class CoursBean {
 	
 	private CoursService coursservice = new CoursServiceImpl();
-	private ClasseService classeservice = new ClasseServiceImpl();
-
-	
+	//private ClasseService classeservice = new ClasseServiceImpl();
+	private ClasseDAO classeDAO = new ClasseDaoImp();
+	private CoursDAO coursDAO = new CoursDaoImp();
 	
 	private String nomcours;
 	private String contenu;
@@ -42,18 +46,18 @@ public class CoursBean {
 
 
 	public void setLeCours(Cours leCours) {
-		this.leCours = leCours;
+		CoursBean.leCours = leCours;
 	}
 
 	private List<String> catégories;
+	
 	public List<String> getCatégories() {
 		return catégories;
 		
 	}
 	
 	private List<Cours> listcours;
-	
-	
+	 
 	
 	
 	
@@ -70,18 +74,12 @@ public class CoursBean {
 	
 	@PostConstruct
 	public void initBean() {
-        catégories = new ArrayList<String>();
-
-		/*List<Classe> listclasse = classeservice.findAll();	
-		for(Classe o : listclasse) {
-			catégories.add(o.getNom_classe());
-		}
-		*/
-		listcours = coursservice.findAll();
-		
-		
-		
-		
+		try {
+			listcours = coursservice.findAll();
+			catégories = classeDAO.findAll();
+			}catch(Exception e) {
+				System.out.println(e);
+			}		
 	}
 
 
@@ -154,7 +152,7 @@ public class CoursBean {
 		c.setNom_cours(nomcours);
 		c.setContenu(contenu);
 		c.setCatégorie(catégorie);
-		coursservice.add(c);
+		coursDAO.add(c);
 		
 		nomcours="";
 		contenu="";
