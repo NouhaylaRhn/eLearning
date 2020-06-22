@@ -1,14 +1,11 @@
 package eLearning.dao;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import javax.faces.context.FacesContext;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
-import eLearning.dao.Cours;
 
 
 
@@ -36,11 +33,21 @@ public class ClasseDaoImp implements ClasseDAO {
 		session.getTransaction().commit();
 		return cc;
 	}
+	@SuppressWarnings({ "null", "unchecked" })
 	@Override
-	public List<Classe> findAll() {
+	public List<String> findAll() {
 		session.beginTransaction();
+		List<String> catégories = new ArrayList<String>();
 
-		return session.createQuery("select o from Classe o ").list();
+		List<Classe> listclasse = session.createQuery("select o from Classe o ").list();
+		System.out.println(listclasse);
+		System.out.println("sm7li");
+		for(Classe o : listclasse) {
+			catégories.add(o.getNom_classe());
+		}
+		System.out.println(catégories);
+		
+		return catégories;
 
 	}
 	@Override

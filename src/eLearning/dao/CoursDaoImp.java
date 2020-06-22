@@ -1,16 +1,13 @@
 package eLearning.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.context.FacesContext;
-
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import eLearning.dao.Cours;
+import eLearning.Test.HibernateUtil;
 
 
 
@@ -22,9 +19,8 @@ public class CoursDaoImp implements CoursDAO {
 	public void add(Cours c) {
 		session.beginTransaction();
 		session.save(c);
-		//Cours cc = (Cours)session.save(c);
 		session.getTransaction().commit();
-		
+	    session.close();
 	}
 
 	@Override
@@ -33,6 +29,7 @@ public class CoursDaoImp implements CoursDAO {
 		Cours cc = findById(id);
 		session.delete(cc);
 		session.getTransaction().commit();
+		session.close();
 		
 	}
 

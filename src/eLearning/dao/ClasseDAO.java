@@ -9,7 +9,7 @@ public interface ClasseDAO {
 	public void add(Classe c);
 	public void delete(Long id);
 	public Classe edit(Classe c);
-	public List<Classe> findAll();
+	public List<String> findAll();
 	
 	public Classe findById(Long id);
 	

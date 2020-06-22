@@ -26,7 +26,7 @@ public class ClasseServiceImpl implements ClasseService {
 }
 
 	@Override
-	public List<Classe> findAll() {
+	public List<String> findAll() {
 		return dao.findAll();
 	}
 
