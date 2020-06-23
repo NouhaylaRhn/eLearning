@@ -3,11 +3,4 @@ language: java
 
 jdk: openjdk8
 
-before_install:
-  - cd java
 
-deploy:
-  provider: pages
-  local_dir: build
-  on:
-    branch: master
