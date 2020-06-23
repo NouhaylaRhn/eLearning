@@ -1,0 +1,12 @@
+language: java
+
+
+jdk: openjdk8
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $github_token
+  local_dir: build
+  on:
+    branch: master
